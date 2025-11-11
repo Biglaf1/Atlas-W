@@ -1,0 +1,91 @@
+{
+  "name": "atlas-risk-cover",
+  "version": "2.0.0",
+  "description": "Site web ATLAS Risk Cover - Solutions d'assurance internationale",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "npx serve -s build",
+    "dev": "webpack-dev-server --mode development --open",
+    "prod": "webpack --mode production",
+    "lint": "eslint src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx,css}",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atlas-risk-cover/website.git"
+  },
+  "keywords": [
+    "insurance",
+    "assurance",
+    "international",
+    "risk management",
+    "broker",
+    "courtage"
+  ],
+  "author": "ATLAS Risk Cover",
+  "license": "Proprietary",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "axios": "^1.3.2",
+    "framer-motion": "^10.0.0",
+    "react-hook-form": "^7.43.0",
+    "react-intersection-observer": "^9.4.3",
+    "@emailjs/browser": "^3.10.0",
+    "react-helmet-async": "^1.3.0",
+    "react-icons": "^4.7.1",
+    "react-toastify": "^9.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "eslint": "^8.33.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "prettier": "^2.8.3",
+    "react-scripts": "5.0.1",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
+    "source-map-explorer": "^2.5.3",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}

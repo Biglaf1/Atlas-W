@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATLAS Risk Cover - Solutions d'Assurance Internationale</title>
+    
+    <!-- Styles CSS -->
+    <style>
+        /* ========== Variables CSS ========== */
+        :root {
+            --primary-blue: #1a2332;
+            --secondary-blue: #2a3444;
+            --accent-orange: #ff9933;
+            --accent-yellow: #ffcc33;
+            --text-white: #ffffff;
+            --text-gray: #b8c5d6;
+            --card-bg: rgba(42, 52, 68, 0.5);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --gradient-bg: linear-gradient(135deg, #1a2332 0%, #2a3444 100%);
+        }
+
+        /* ========== Reset & Base ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--primary-blue);
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 153, 51, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 204, 51, 0.1) 0%, transparent 50%);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ========== Header & Navigation ========== */
+        header {
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-orange);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--text-white);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--secondary-blue);
+            min-width: 250px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            top: 100%;
+            margin-top: 0.5rem;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-gray);
+            transition: all 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: rgba(255, 153, 51, 0.1);
+            color: var(--text-white);
+        }
+
+        .btn-devis {
+            background: var(--accent-orange);
+            color: var(--text-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-devis:hover {
+            background: #ff8822;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 153, 51, 0.3);
+        }
+
+        /* ========== Main Content ========== */
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: rgba(255, 153, 51, 0.2);
+            color: var(--accent-orange);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 153, 51, 0.3);
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-yellow);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        /* ========== Content Sections ========== */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            color: var(--accent-yellow);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(42, 52, 68, 0.8);
+            border-left: 4px solid var(--accent-orange);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .highlight-title {
+            color: var(--accent-yellow);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+        }
+
+        .highlight-list li {
+            color: var(--text-gray);
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .highlight-list li:before {
+            content: "•";
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+        }
+
+        .highlight-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* ========== Burger Menu ========== */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">A</div>
+                <div>
+                    <div class="logo-text">ATLAS</div>
+                    <div class="logo-subtitle">RISK COVER</div>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#solutions">Solutions ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#sante-international">Santé International</a>
+                        <a href="#rc-pro">RC Professionnelle</a>
+                        <a href="#deplacements-pro">Déplacements Pro</a>
+                        <a href="#cyber-risk">Cyber Risk</a>
+                        <a href="#kidnapping">Kidnapping & Rançon</a>
+                        <a href="#violences-politiques">Violences Politiques</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#expertise">Expertise ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#audit">Audit d'Assurance</a>
+                        <a href="#co-courtage">Co-courtage</a>
+                        <a href="#formation">Formation Sûreté</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#a-propos">À Propos ▼</a>
+                    <div class="dropdown-content">
+                        <a href="#qui-sommes-nous">Qui sommes-nous</a>
+                        <a href="#notre-mission">Notre mission</a>
+                        <a href="#equipe">L'équipe ARC</a>
+                    </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <a href="#devis" class="btn-devis">Demander un devis</a>
+            
+            <div class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="category-badge">[CATÉGORIE - PROFESSIONNELS]</div>
+        
+        <section class="hero-section">
+            <h1 class="hero-title">[Titre de la Page]</h1>
+            <h2 class="hero-subtitle">[Sous-titre si nécessaire]</h2>
+            <p class="hero-description">[Description courte et percutante de cette solution]</p>
+        </section>
+
+        <div class="content-grid">
+            <div class="section-card">
+                <h3 class="section-title">[Titre Section 1]</h3>
+                <div class="section-content">
+                    <p>[Votre texte explicatif ici. Décrivez en détail cette solution, ses avantages, pourquoi elle est importante...]</p>
+                    <p>[Suite du texte explicatif...]</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3 class="highlight-title">[Titre Encadré]</h3>
+                <ul class="highlight-list">
+                    <li>[Point important 1]</li>
+                    <li>[Point important 2]</li>
+                    <li>[Point important 3]</li>
+                    <li>[Point important 4]</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
